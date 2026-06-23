@@ -1,8 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
-
+import PeriodicTable from '../components/periodic-table.astro';
 ---
 
 <Layout>
-	<h1>Some text here</h1>
+	<div class="w-full flex flex-col justify-center items-center ">
+		<div class="m-0 p-0">
+			<h1>The Periodic Table of the Elements</h1>
+		</div>
+		<PeriodicTable />
+	</div>
 </Layout>

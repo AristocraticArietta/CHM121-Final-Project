@@ -1,0 +1,111 @@
+---
+import { elements } from "../scripts/periodic-table.js";
+import { getGroupColor } from "../scripts/pt-populator.js";
+ 
+---
+<div id="periodic-table" class="grid grid-cols-19 grid-rows-9 gap-0.5 p-2 w-full h-full">
+  {elements.map((el) => (
+    <div 
+      class={`element-card flex flex-col w-full items-center justify-center p-0.5 border border-gray-400 rounded-sm hover:scale-110 hover:z-10 transition-transform cursor-pointer shadow-sm ${getGroupColor(el.group)}`}
+      style={`grid-column: ${el.col}; grid-row: ${el.row};`}
+      data-symbol={el.symbol}
+    >
+      <span class="text-[0.5rem] self-start">{el.number}</span>
+      <span class="text-xl font-bold">{el.symbol}</span>
+      <span class="text-[0.5rem] text-center ">{el.name}</span>
+    </div>
+  ))}
+</div>
+<div id="element-modal" class="fixed inset-0 bg-black/70 hidden items-center justify-center z-50 backdrop-blur-sm">
+  <div class="bg-gray-800 p-6 rounded-lg max-w-md w-full relative border border-gray-600 shadow-2xl text-gray-100">
+    
+    <button id="close-modal" class="absolute top-3 right-4 text-2xl text-gray-400 hover:text-white">&times;</button>
+    
+    <div class="flex items-end gap-4 mb-4 border-b border-gray-600 pb-4">
+      <h2 id="modal-symbol" class="text-5xl font-black"></h2>
+      <div>
+        <h3 id="modal-name" class="text-2xl font-bold"></h3>
+        <p id="modal-number" class="text-sm text-gray-400">Atomic Number: <span></span></p>
+      </div>
+    </div>
+    
+    <div class="space-y-2 text-sm">
+      <p><strong class="text-gray-300">Group:</strong> <span id="modal-group" class="capitalize"></span></p>
+      <p><strong class="text-gray-300">Standard Atomic Weight:</strong> <span id="modal-weight"></span></p>
+      <p><strong class="text-gray-300">Discoverer(s):</strong> <span id="modal-discover"></span></p>
+      <p><strong class="text-gray-300">Year of Discovery:</strong> <span id="modal-year"></span></p>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  // Astro allows you to import your server-side data directly into client scripts!
+  import { elements } from '../scripts/periodic-table.js';
+
+  // Grab the DOM elements
+  const modal = document.getElementById('element-modal');
+  const closeBtn = document.getElementById('close-modal');
+  const cards = document.querySelectorAll('.element-card');
+
+  // Grab the text nodes inside the modal that we want to update
+  const mSymbol = document.getElementById('modal-symbol');
+  const mName = document.getElementById('modal-name');
+  const mNum = document.querySelector('#modal-number span');
+  const mGroup = document.getElementById('modal-group');
+  const mWeight = document.getElementById('modal-weight');
+  const mDiscover = document.getElementById('modal-discover');
+  const mYear = document.getElementById('modal-year');
+
+  // 1. Open Modal Logic
+  cards.forEach(card => {
+    card.addEventListener('click', () => {
+      // Find the specific element data
+      const clickedSymbol = card.getAttribute('data-symbol');
+      const data = elements.find(e => e.symbol === clickedSymbol);
+
+      if (data && modal && mSymbol && mName && mNum && mGroup && mWeight && mDiscover && mYear) {
+        // Inject the data into the modal
+        mSymbol.textContent = data.symbol;
+        mName.textContent = data.name;
+        mNum.textContent = String(data.number);
+        
+        // Minor formatting: replace hyphens with spaces for display
+        mGroup.textContent = data.group.replace('-', ' '); 
+        
+        // (Assuming you add these fields to your data array later!)
+        mWeight.textContent = data.atomicMass || 'Unknown';
+        mDiscover.textContent = data.discoverer || 'Unknown';
+        mYear.textContent = String(data.year) || 'Unknown';
+
+        // Reveal the modal by swapping Tailwind classes
+        modal.classList.remove('hidden');
+        modal.classList.add('flex'); 
+      }
+    });
+  });
+
+  // 2. Close Modal Logic (Reusable function)
+  const closeModal = () => {
+    if (!modal) return;
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+  };
+
+  // Close on 'X' button click
+  if (closeBtn) closeBtn.addEventListener('click', closeModal);
+
+  // Close when clicking the dark background overlay outside the modal box
+  if (modal) {
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+  }
+  
+  // Close when hitting the Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal && !modal.classList.contains('hidden')) {
+      closeModal();
+    }
+  });
+</script>
