@@ -1,11 +1,41 @@
 @import "tailwindcss";
 
+@keyframes attention {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes circle-around{
+  0% {
+    transform: rotate(0deg) translateX(10px) rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg) translateX(10px) rotate(-360deg);
+  }
+}
+
 @theme {
   --color-primary: #1e40af;
   --color-secondary: #facc15;
   --spacing: 1rem;
-  --page-height: calc(100% - 5rem);
+  --page-height: calc(100vh - 5rem);
+  --half-page-height: calc(100vh - 20rem);
   --header-height: 5rem;
+  --font-sans: "Roboto";
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../assets/Fonts/Roboto/Roboto-VariableFont_wdth_wght.ttf");
+  font-weight: normal;
+  font-style: normal;
 }
 
 #header-link {
@@ -20,3 +50,30 @@
 #header-link:hover {
     border: 0.25rem solid white;
 }
+
+#attention-arrow {
+    animation: attention 1s infinite;
+}
+
+#anchor-cirlce {
+  anchor-name: --circle;
+}
+
+#colored-cirlce1 {
+    position: absolute;
+    position-anchor: --circle;
+    position-area: top right;
+}
+
+#colored-cirlce2 {
+    position: absolute;
+    position-anchor: --circle;
+    position-area: top left;
+}
+
+#colored-cirlce3 {
+    position: absolute;
+    position-anchor: --circle;
+    position-area: bottom right;
+}
+
