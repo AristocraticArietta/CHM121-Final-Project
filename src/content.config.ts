@@ -12,6 +12,7 @@ const blog = defineCollection({
 			description: z.string(),
 			heading: z.string(),
 			subtitle: z.string(),
+			nextpage: z.string(),
 		}),
 });
 
