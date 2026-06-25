@@ -22,13 +22,12 @@
 }
 
 @theme {
-  --color-primary: #1e40af;
-  --color-secondary: #facc15;
   --spacing: 1rem;
   --page-height: calc(100vh - 5rem);
   --half-page-height: calc(100vh - 20rem);
   --header-height: 5rem;
   --font-sans: "Roboto";
+  --blur-size: 3rem;
 }
 
 @font-face {
@@ -38,42 +37,103 @@
   font-style: normal;
 }
 
-#header-link {
-    text-decoration: none;
-    text-align: center;
-    vertical-align: middle;
-    height: 100%;
-    width: 100%;
-    border: 0.25rem solid transparent;
-    box-sizing: border-box;
-}
-#header-link:hover {
-    border: 0.25rem solid white;
-}
-
 #attention-arrow {
     animation: attention 1s infinite;
 }
 
-#anchor-cirlce {
-  anchor-name: --circle;
+.glassmorphism {
+  border: 1px solid rgba(255, 255, 255, 0.38);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 1rem 5rem rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(0.25rem);
+  -webkit-backdrop-filter: blur(0.25rem);
+  transition-duration: 0.5s;
+  color: white;
+  padding: 0.5rem;
 }
 
-#colored-cirlce1 {
-    position: absolute;
-    position-anchor: --circle;
-    position-area: top right;
+.glassmorphism-basic {
+  border: 1px solid rgba(255, 255, 255, 0.38);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 1rem 5rem rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(0.25rem);
+  -webkit-backdrop-filter: blur(0.25rem);
+  transition-duration: 0.5s;
+  color: white;
 }
 
-#colored-cirlce2 {
-    position: absolute;
-    position-anchor: --circle;
-    position-area: top left;
+.start-button {
+  font-size: 3rem;
+  padding: 3rem 7rem;
+  border: 1px solid rgba(255, 255, 255, 0.38);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 1rem 5rem rgba(0, 0, 0, 0.5);
+  border-radius: calc(infinity * 1px);
+  backdrop-filter: blur(0.25rem);
+  -webkit-backdrop-filter: blur(0.25rem);
+  transition-duration: 0.5s;
+  color: white;
+}
+.start-button:hover {
+  backdrop-filter: blur(3rem);
+  -webkit-backdrop-filter: blur(3rem);
+  
 }
 
-#colored-cirlce3 {
-    position: absolute;
-    position-anchor: --circle;
-    position-area: bottom right;
+.circle-container {
+  position: absolute;
+  width: 100vw;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: spin 10s linear infinite; /* Adjust spin speed */
+  z-index: -10;
+}
+
+/* Base style for all circles */
+.circle {
+  position: absolute;
+  border-radius: calc(infinity * 1px);
+  mix-blend-mode: multiply; /* Creates the color overlap effect */
+  opacity: 0.8;
+  width: 25vw;
+  height: 25vw;
+  transform-origin: center;
+}
+
+/* Individual circle colors and sizes */
+.cyan {
+  background-color: oklch(86.5% 0.127 207.078);
+  transform: translate(33%, 22.5%);
+}
+
+.fuchsia {
+  background-color: oklch(83.3% 0.145 321.434);
+  transform: translate(-33%, 22.5%);
+}
+
+.yellow {
+  background-color: oklch(90.5% 0.182 98.111);
+  transform: translate(0, -33%);
+}
+
+.indigo {
+  background-color: oklch(78.5% 0.115 274.713);
+  transform: translate(0%, 0%);
+  mix-blend-mode: normal; /* Normal blend to stand out, or keep multiply */
+}
+
+/* Animation to spin the entire container */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 

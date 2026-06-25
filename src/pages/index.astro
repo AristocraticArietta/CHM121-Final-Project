@@ -5,27 +5,25 @@ import PeriodicTable from '../components/periodic-table.astro';
 
 <Layout>
 	<div class="w-full flex flex-col justify-center items-center">
-		<div class="h-(--half-page-height)">
-			<div class="blur-lg size-56 relative">
-				<div id="anchor-circle" class="rounded-full bg-indigo-300 size-28 mix-blend-multiply"></div>
-				<div id="colored-circle1" class="rounded-full bg-fuchsia-300 size-28 mix-blend-multiply"></div>
-				<div id="colored-circle2" class="rounded-full bg-cyan-300 size-28 mix-blend-multiply"></div>
-				<div id="colored-circle3" class="rounded-full bg-yellow-300 size-28 mix-blend-multiply"></div>
+		<div class="h-full w-full">
+			<div class="circle-container">
+				<div class="circle indigo"></div>
+				<div class="circle fuchsia"></div>
+				<div class="circle cyan"></div>
+				<div class="circle yellow"></div>
 			</div>
-			<div class="flex flex-col justify-around items-center h-full w-full">
-				<h1 class="text-5xl font-bold text-center">The Periodic Table of the Elements</h1>
-				<h2 class="text-2xl font-semibold text-center">An Interactive Journey through History</h2>
+			<div class="flex flex-col justify-around items-center h-screen w-full">
+				<h1 class="text-5xl font-bold text-center glassmorphism">The Periodic Table of the Elements</h1>
+				<h2 class="text-2xl font-semibold text-center glassmorphism">An Interactive Journey through History</h2>
+				<a href="" class="start-link">
+					<button type="button" class="start-button">Start</button>
+				</a>
+				<h1 class="text-lg font-normal text-center glassmorphism">Scroll down to explore the Periodic Table!</h1>
+				<svg id="attention-arrow" width="7rem" height="7rem" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path stroke-linejoin="round" stroke-linecap="round" stroke-width="2" d="M 12 6 V 18 M 12 18 L 7 13 M 12 18 L 17 13" stroke="#fff" />
+				</svg>
 			</div>
-		</div>
-		<div class="flex flex-col justify-center items-center">
-			<h1>Scroll down to explore the Periodic Table!</h1>
-			<svg id="attention-arrow" width="7rem" height="7rem" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-				<path stroke-linejoin="round" stroke-linecap="round" stroke-width="2" d="M 12 6 V 18 M 12 18 L 7 13 M 12 18 L 17 13" stroke="#bbb" />
-			</svg>
 		</div>
 		<PeriodicTable />
-	</div>
-	<div id="target-container" class="fixed h-full w-full bg-gray-800">
-
 	</div>
 </Layout>
