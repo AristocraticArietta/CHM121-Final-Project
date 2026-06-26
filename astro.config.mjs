@@ -10,9 +10,12 @@ import mdx from '@astrojs/mdx';
 
 import sitemap from '@astrojs/sitemap';
 
+import netlify from '@astrojs/netlify';
+
 // https://astro.build/config
 export default defineConfig({
-  site: 'http://localhost:4321',
+  site: 'https://chm121-final-periodic-table.netlify.app',
+
   vite: {
     plugins: [tailwindcss()]
   },
@@ -37,5 +40,7 @@ export default defineConfig({
                 ],
             },
     }
-  ]
+  ],
+
+  adapter: netlify()
 });

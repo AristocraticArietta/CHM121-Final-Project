@@ -16,16 +16,16 @@ const { title, description, heading, subtitle, nextpage } = Astro.props;
       <svg id="back-arrow" transform="rotate(90)" width="7rem" height="7rem" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 				<path stroke-linejoin="round" stroke-linecap="round" stroke-width="2" d="M 12 6 V 18 M 12 18 L 7 13 M 12 18 L 17 13" stroke="#fff" />
 			</svg>
-      <b>Home</b>
+      <b class="glassmorphism">Home</b>
     </a>
     <a href={nextpage} class="absolute right-0 text-center" title="Next Page">
       <svg id="back-arrow" transform="rotate(270)" width="7rem" height="7rem" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 				<path stroke-linejoin="round" stroke-linecap="round" stroke-width="2" d="M 12 6 V 18 M 12 18 L 7 13 M 12 18 L 17 13" stroke="#fff" />
 			</svg>
-      <b>Next Page</b>
+      <b class="glassmorphism">Next Page</b>
     </a>
     <article class="w-60 mx-auto pt-5">
-      <header class="mb-8">
+      <header class="mb-8 glassmorphism">
         <h1 class="text-4xl font-bold">{heading}</h1>
         <p class="text-gray-400">{subtitle}</p>
       </header>
