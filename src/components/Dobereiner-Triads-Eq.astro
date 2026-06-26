@@ -1,0 +1,68 @@
+<style>
+    .container, .spacer {
+        padding: 4rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    table {
+    width: 100%;
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 1rem 5rem rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(0.25rem);
+    -webkit-backdrop-filter: blur(0.25rem);
+    transition-duration: 0.5s;
+    color: white;
+    }
+    td, th {
+        padding: 1rem;
+    }
+    tr:nth-child(even) {
+        background-color: rgba(255, 255, 255, 0.3);
+    }
+</style>
+<div class="container">
+    <math id="math">
+        <mrow>
+            <mi>Atomic Mass of Middle Element</mi>
+            <mo>≈</mo>
+            <mfrac>
+                <mrow>
+                    <mrow>
+                        <mo>Mass of Element 1</mo>
+                    </mrow>
+                    <mo>+</mo>
+                    <mrow>
+                        <mo>Mass of Element 2</mo>
+                    </mrow>
+                </mrow>
+                <mo>2</mo>
+            </mfrac>
+        </mrow>
+    </math>
+    <div class="spacer">Some of his triads align neatly as columns on the modern periodic table.</div>
+    <table>
+        <tr>
+            <th>Modern Group</th>
+            <th>Example</th>
+        </tr>
+        <tr>
+            <td>Alkali Metals</td>
+            <td>Lithium (Li - 3), Sodium (Na - 11), Potassium (K - 19)</td>
+        </tr>
+        <tr>
+            <td>Alkaline Earth Metals</td>
+            <td>Calcium (Ca - 20), Strontium (Sr - 38), Barium (Ba - 56)</td>
+        </tr>
+        <tr>
+            <td>Halogens</td>
+            <td>Chlorine (Cl - 17), Bromine (Br - 35), Iodine (I - 53)</td>
+        </tr>
+        <tr>
+            <td>Chalcogens</td>
+            <td>Sulfur (S - 16), Selenium (Se - 34), Tellurium (Te - 52)</td>
+        </tr>
+    </table>
+</div>

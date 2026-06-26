@@ -1,0 +1,25 @@
+<style>
+.mol-container {
+  width: 60%;
+  height: 30vw;
+  position: relative;
+}
+</style>
+
+<div id="container-01" class="mol-container"></div>
+<script>
+    let element = document.querySelector('#container-01');
+    let config = { backgroundColor: '#1e2939' };
+    let viewer = $3Dmol.createViewer( element, config );
+    let pdbUri = '../../src/assets/water_three.pdb';
+    jQuery.ajax( pdbUri, { 
+        success: function(data) {
+        let v = viewer;
+        v.addModel( data, "pdb" );                       /* load data */
+        v.setStyle({}, {sphere: {color: 'spectrum'}});  /* style all atoms */
+        v.zoomTo();                                      /* set camera */
+        v.render();                                      /* render scene */
+        v.zoom(1.2, 1000);                               /* slight zoom */
+        },
+    });
+</script>
