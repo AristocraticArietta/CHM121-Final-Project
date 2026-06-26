@@ -32,7 +32,7 @@ export default defineConfig({
             options: {
                 variants: [
                     {
-                        src: ['./src/assets/Fonts/roboto/Roboto-VariableFont_wdth_wght.ttf'],
+                        src: ['./src/assets/fonts/roboto/Roboto.ttf'],
                         weight: 400,
                         style: 'normal',
                         display: 'swap',
