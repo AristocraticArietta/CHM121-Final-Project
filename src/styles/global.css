@@ -31,7 +31,6 @@
   background: rgba(255, 255, 255, 0.1);
   box-shadow: 0 1rem 5rem rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(0.25rem);
-  -webkit-backdrop-filter: blur(0.25rem);
   transition-duration: 0.5s;
   color: white;
   padding: 0.5rem;
@@ -43,7 +42,6 @@
   background: rgba(255, 255, 255, 0.1);
   box-shadow: 0 1rem 5rem rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(0.25rem);
-  -webkit-backdrop-filter: blur(0.25rem);
   transition-duration: 0.5s;
   color: white;
 }
@@ -136,7 +134,6 @@ main math {
   background: rgba(255, 255, 255, 0.1);
   box-shadow: 0 1rem 5rem rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(0.25rem);
-  -webkit-backdrop-filter: blur(0.25rem);
   transition-duration: 0.5s;
   color: white;
   padding: 0.5rem;
