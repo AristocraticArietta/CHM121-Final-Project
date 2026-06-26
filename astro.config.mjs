@@ -14,7 +14,7 @@ import netlify from '@astrojs/netlify';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://chm121-final-periodic-table.netlify.app',
+  site: 'http://localhost',
 
   vite: {
     plugins: [tailwindcss()]
